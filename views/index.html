@@ -1,0 +1,24 @@
+{% extends './layout.html' %}
+{% block title %} 首页 {% endblock %}
+{% block head %}
+  <link rel="stylesheet" href="/style/index.css" type="text/css">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+  <script src="/script/underscore.js"></script>
+{% endblock %}
+{% block content %}
+<div>
+  <h1> [[ data ]] </h1>
+  <!-- <div id='app-6'>
+    <p>{{message}} </p>
+    <input v-model='message'>
+  </div> -->
+<div>
+{% endblock %}
+
+{% block script %}
+  <!-- <script src="/script/index.js"></script>  -->
+  <script> 
+    console.log(_);
+    // console.log('this is index.html print... ');
+  </script>
+{% endblock  %}
