@@ -6,12 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server:dev": "cross-env NODE_ENV=development nodemon ./app.js",
-    "api:docs": "jsdoc ./**/*.js -d ./docs/jsdoc"
+    "api:docs": "jsdoc ./**/*.js -d ./docs/jsdoc",
+    "client:build": "babel ./assets/script/index.js -o ./assets/script/index.bundle.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC ",
   "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-transform-modules-systemjs": "^7.10.5",
     "cross-env": "^7.0.2",
     "jsdoc": "^3.6.5",
     "loadsh": "^0.0.4",

@@ -41,3 +41,37 @@ app.use(historyApiFallback({ whiteList: ['/api'] }));
 // other middlewares
 app.use(...);
 ```
+
+### System.js
+在不支持 mudule 的时候 非常有用，能将es6 的 module transform 到 es5 使用，但是需要配合 babel 全家桶才能使用。
+
+@babel/plugin-transform-modules-systemjs
+@babel/cli
+@babel/core
+
+- 配置.babelrc文件 
+```
+{
+  "plugins":["@babel/plugin-transform-modules-systemjs"]
+}
+```
+
+- 使用babel cli 编译对应的 文件
+
+```
+"client:build": "babel ./assets/script/index.js -o ./assets/script/index.bundle.js"
+```
+
+- 使用编译后的文件 
+```
+<script src="https://cdn.bootcss.com/systemjs/6.3.1/system.js"></script>
+  <script type='nomodule'>
+    console.log('this is nosupper module');
+    System.import('/script/index.bundle.js')
+      .then(res=>{
+        console.log('使用System Module',res.default);
+      })
+  </script>
+```
+
+# rize + puppteer 页面测试
