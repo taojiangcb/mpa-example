@@ -1,6 +1,10 @@
 # MPA
   服务器渲染模式，后端通过模板渲染界面并且在渲染的时候可以注入相关的数据吐给前端js
 
+- server 是服务端控制 gulp接管
+- web 的项目由webpack 接管
+
+
 # koa-simple-router
   一个简单的 koa 路由插件
 ```
@@ -75,3 +79,19 @@ app.use(...);
 ```
 
 # rize + puppteer 页面测试
+
+
+# npm-run-all
+  这个工具可以一起运行命令
+
+```
+script:{
+  "publish":"....",
+  "build":"....",
+  "test":"....",
+  "deploy":"npm-run-all test build publish"  //串行
+  "deploy":"npm-run-all --parallel test build publish"  //并行一起执行
+}
+```
+
+# package 

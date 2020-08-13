@@ -1,5 +1,5 @@
 const Koa = require('koa');
-const { port, appPath } = require('./config');
+const { port, appPath } = require('../config');
 const initRouters = require('./controllers');
 const render = require('koa-swig');
 const serve = require('koa-static');
