@@ -93,5 +93,6 @@ script:{
   "deploy":"npm-run-all --parallel test build publish"  //并行一起执行
 }
 ```
-
 # package 
+
+# gulpfile 
