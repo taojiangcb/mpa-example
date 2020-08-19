@@ -1,10 +1,10 @@
 
 const { extend } = require('loadsh');
 const { resolve } = require('path');
-const ENV = {
-  DEV: 'development',
-  PROD: 'production'
-}
+// const ENV = {
+//   DEV: 'development',
+//   PROD: 'production'
+// }
 
 let config = {
   port: 8081,
@@ -14,14 +14,14 @@ let config = {
   }
 }
 
-if (process.env.NODE_ENV === ENV.DEV) {
+if (process.env.NODE_ENV === 'development') {
   const localConfig = {
     port: 8081
   }
   config = extend(config, localConfig);
 }
 
-if (process.env.NODE_ENV === ENV.PROD) {
+if (process.env.NODE_ENV === 'production') {
   const prodConfig = {
     port: 80
   }

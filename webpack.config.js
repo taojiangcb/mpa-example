@@ -37,6 +37,9 @@ const webpackConfig = {
   entry: {
     ..._entry,
   },
+  resolve: {
+
+  },
   output: {
     path: resolve(__dirname, './dist/assets'),
     filename: 'script/[name].bundle.js'
@@ -61,6 +64,11 @@ const webpackConfig = {
     ],
   },
 
+  resolve: {},
+  externals: {
+    jquery: 'jQuery',
+  },
+  
   plugins: [
     ..._plugins,
     new AfterHtmlPlugin(),
