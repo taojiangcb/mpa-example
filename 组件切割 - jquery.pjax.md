@@ -1,18 +1,28 @@
+# 使用jQuery & jquery.pjax 对组件进行切割 ssr
+```
+layout.html 
 
+ <div id="app">
+        {% block content %}{% endblock  %}
+    </div>
 
-import { Readable } from 'stream';
-import cheerio from 'cheerio';
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
 
-const Books = require('../models/Books');
+    <script>
+        $(document).pjax('a', '#app');
+    </script>
+```
 
-class BookController {
-  constructor() { }
+```
+BooksController.js
 
-  async actionIndex(ctx, next) {
+async actionIndex(ctx, next) {
     const html = await ctx.render('books/pages/list');
     const { logger } = ctx;
     console.log(logger);
     if (ctx.request.header['x-pjax']) {
+      //从其他页面跳转过来
       console.log('站内切换');
       logger && logger.logInfo('站内切换');
       ctx.satus = 200;
@@ -24,6 +34,7 @@ class BookController {
       ctx.res.end();
     }
     else {
+      //直接请求
       console.log('直接刷新');
       logger && logger.logInfo('直接刷新');
       //进行bigpiple 处理
@@ -40,11 +51,6 @@ class BookController {
       await createSSRstreamPromise();
     }
   }
+```
 
-  async actionCreate(ctx, next) {
-    console.log('actionCreate the books');
-    ctx.body = await ctx.render('books/pages/create');
-  }
-}
-
-module.exports = BookController;
+利用 pajx 替换 app 的内容

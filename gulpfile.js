@@ -41,7 +41,7 @@ function builddev() {
 function buildconfig() {
   return gulp.src(entry).pipe(
     rollup({
-      input: clearEntry,
+      input: clearEntry,      //需要清洗的入口 
       output: {
         format: 'cjs'
       },

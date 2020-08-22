@@ -14,15 +14,20 @@ const mergeConfig = require(`./config/webpack.${mode}.js`);
 const AfterHtmlPlugin = require('./config/AfterHtmlPlugin')
 
 let _entry = {};
-let _plugins = [];
+let htmlEntryPlugins = [];
 
+/**
+ * 配置webpack 编译的入口
+ */
 files.reduce((p, item, index) => {
   const fileName = item.replace(
     /\/([\w|-]+)(\.entry\.js)/g,
     (match, $1, $2, offset, str) => {
-      p[$1] = str;
+      
+      p[$1] = str;        //{key:file path} into _entry
+
       const [dist, template] = $1.split('-');
-      _plugins.push(new HtmlWebPlugin({
+      htmlEntryPlugins.push(new HtmlWebPlugin({
         template: `./src/web/views/${dist}/pages/${template}.html`,
         filename: `../views/${dist}/pages/${template}.html`,
         inject: false
@@ -68,9 +73,9 @@ const webpackConfig = {
   externals: {
     jquery: 'jQuery',
   },
-  
+
   plugins: [
-    ..._plugins,
+    ...htmlEntryPlugins,
     new AfterHtmlPlugin(),
   ]
 };

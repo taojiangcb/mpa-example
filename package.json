@@ -28,6 +28,7 @@
     "@babel/preset-env": "^7.11.0",
     "@rollup/plugin-replace": "^2.3.3",
     "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.0.3",
     "cross-env": "^7.0.2",
     "glob": "^7.1.6",
     "gulp": "^4.0.2",
@@ -46,6 +47,7 @@
     "yargs-parser": "^19.0.1"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "co": "^4.6.0",
     "jquery": "^3.5.1",
     "koa": "^2.13.0",

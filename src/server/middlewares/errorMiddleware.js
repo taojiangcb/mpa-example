@@ -13,7 +13,7 @@ const errorHandler = {
       await next();
       if (404 == ctx.status) {
         ctx.status = 200;
-        ctx.body = '<script type="text/javascript" src="//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js" charset="utf-8"></script>';
+        ctx.body = `<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js"></script>`;
       }
     });
   }

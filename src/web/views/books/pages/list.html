@@ -1,12 +1,10 @@
-{% extends './layout.html' %}
+{% extends '../../layouts/layout.html' %}
 {% block title %} 图书展示页 {% endblock %}
 {% block head %}
   <!--injectcss-->
 {% endblock %}
 {% block content %}
-  {% include "../../components/banner/banner.html" %}
-  <h1> 我是图书展示 </h1>
-  {% include "../../components/list/list.html" %}
+  {% include "../../../components/list/list.html" %} 
 {% endblock %}
 
 {% block script %}

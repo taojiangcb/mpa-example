@@ -4,7 +4,6 @@
 - server 是服务端控制 gulp接管
 - web 的项目由webpack 接管
 
-
 # koa-simple-router
   一个简单的 koa 路由插件
 ```
@@ -96,3 +95,5 @@ script:{
 # package 
 
 # gulpfile 
+### 可以利用rollup 对node 服务端进行 tree shaking 
+
